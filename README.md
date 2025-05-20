@@ -17,5 +17,5 @@ Manually install dependencies with `pip install -r requirements.txt` and run `ma
 Скачать можно с [официального сайта](https://www.python.org/downloads/).;
 2. Запустить `Run Steam Library Space Calculator.bat` или
 Установите зависимости ручками `pip install -r requirements.txt` и запустите `main.py`;
-3. Введите свой Steam API ключ [получить тут](https://steamcommunity.com/dev/apikey) ;
+3. Введите свой Steam API ключ [получить тут](https://steamcommunity.com/dev/apikey);
 4. Введите ваш SteamID [получить тут](https://steamdb.info/calculator);
