@@ -22,7 +22,7 @@ def GetOwnedGames(steam_api_key, steam_id):
         games = response.json()["response"]["games"]
         return games
     except Exception as e:
-        print("[ERROR] Failed to fetch games:", str(e))
+        print("Error: Failed to fetch games:", str(e))
         return None
 
 
@@ -41,7 +41,7 @@ def GetGameSpace(appid):
         html = requests.get(f"https://store.steampowered.com/app/{appid}", headers=head).text.lower()
         page = fromstring(html)
     except Exception as e:
-        print(f"[ERROR] Failed to fetch store page for AppID {appid}: {e}")
+        print(f"Error: Failed to fetch store page for AppID {appid}: {e}")
         return {"size": 0, "appid": appid, "name": f"AppID {appid}"}
 
     pattern_arr = [
@@ -85,7 +85,7 @@ def GetGameSpace(appid):
                 digits = digits / 1000
             result = digits
         except:
-            print(f"[ERROR] Failed to parse space for AppID {appid}")
+            print(f"Error: Failed to parse space for AppID {appid}")
 
     return {"size": result, "appid": appid}
 
@@ -117,20 +117,18 @@ def GetSumSpace(games_array, thread_num=4, show_progress=False):
 
 
 def main():
-    steam_api_key = input("Введите ваш Steam Web API ключ (https://steamcommunity.com/dev/apikey): ").strip()
-    steam_id = input("Введите ваш SteamID (https://steamdb.info/calculator): ").strip()
+    steam_api_key = input("Enter your Steam Web API key: ").strip()
+    steam_id = input("Enter your SteamID: ").strip()
 
-    print("Получение списка игр...")
     games = GetOwnedGames(steam_api_key, steam_id)
 
     if not games:
-        print("Ошибка: не удалось получить список игр.")
+        print("Error: failed to get the list of games.")
         return
 
-    print("\nРассчитывается общий объём...")
     total_space = GetSumSpace(games, thread_num=16, show_progress=False)
-    print(f"\nОбщий объём вашей библиотеки: {total_space}")
-    input("\nНажмите Enter, чтобы выйти...")
+    print(f"\nTotal library size: {total_space}")
+    input("\nPress Enter to exit...")
 
 
 if __name__ == "__main__":
