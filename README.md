@@ -14,7 +14,7 @@ Manually install dependencies with `pip install -r requirements.txt` and run `ma
 Скрипт для подсчёта необходимого места на диске, для установки всей вашей библиотеки Steam
 
 1. Установите Python 3.10+
-Скачать можно с [официального сайта](https://www.python.org/downloads/).;
+Скачать можно с [официального сайта](https://www.python.org/downloads/);
 2. Запустить `Run Steam Library Space Calculator.bat` или
 Установите зависимости ручками `pip install -r requirements.txt` и запустите `main.py`;
 3. Введите свой Steam API ключ [получить тут](https://steamcommunity.com/dev/apikey);
